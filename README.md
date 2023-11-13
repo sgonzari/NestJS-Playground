@@ -1,2 +1,2 @@
-# playground
+# Playground
 Repositorio de pruebas
