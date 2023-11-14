@@ -19,3 +19,35 @@ _Eliminar carpeta .git para poder subir al repositorio_
 ```
 nest g module module-name
 ```
+
+## Descargar cli de Prisma
+```
+npm i @prisma/client
+```
+
+## Descargar Prisma para modelado y exportación de database
+```
+npm i -D prisma
+```
+
+## Inicialización de Prisma
+```
+npx prisma init
+```
+
+## Migración y exportación de Prisma [DEV]
+```
+npx prisma migrate dev
+```
+
+## Generar el cliente de Prisma 
+_Hace que los modelos declarados, sean interfaces utilizables_
+```
+npx prisma generate
+```
+
+## Prisma Studio
+_Visualizador web (como phpmyadmin) de la base de datos_
+```
+npx prisma studio
+```
