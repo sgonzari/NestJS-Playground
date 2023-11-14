@@ -13,6 +13,7 @@ npm i -g @nestjs/cli
 ```
 nest new project-name
 ```
+_Eliminar carpeta .git para poder subir al repositorio_
 
 ## Creación de un módulo
 ```
