@@ -7,13 +7,11 @@ export class AuthController {
 
     @Post('signup')
     signup () {
-        // Send it as application/json
-        return {msg: 'Hello'}
+        return this.authService.signup()
     }
     
-    @Post('signin')
+    @Post('login')
     signin () {
-        // Send it as text/html
-        return 'I am signed in'
+        return this.authService.login()
     }
 }
