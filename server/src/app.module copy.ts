@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { SharedModule } from './shared/shared.module';
 import { ApiConfigService } from './shared/services/api-config.service';
+import { dataSourceOptions } from '../config/ormconfig';
 
 @Module({
   imports: [
@@ -13,9 +14,10 @@ import { ApiConfigService } from './shared/services/api-config.service';
     }),
     // Trae la configuración realizada de TypeOrm
     TypeOrmModule.forRootAsync({
-      imports: [SharedModule],
-      useFactory: (configService: ApiConfigService) => configService.typeOrmConfig,
-      inject: [ApiConfigService]
+      imports: [ConfigModule],
+      // useFactory: (configService: ApiConfigService) => configService.typeOrmConfig,
+      inject: [ConfigService],
+      useFactory: async () => {return dataSourceOptions as TypeOrmModuleOptions}
     })
   ],
   controllers: [],
