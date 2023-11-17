@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  node:
+    container_name: app
+    build: docker/node
+    working_dir: /application
+    volumes:
+      - .:/application
+    ports:
+      - 3000:3000
+    command: nest start --watch
+
+  postgres:
+    image: postgres:latest
+    container_name: database
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+      POSTGRES_USER: ${POSGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
