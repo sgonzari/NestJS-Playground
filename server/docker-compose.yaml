@@ -9,14 +9,14 @@ services:
       - .:/application
     ports:
       - ${NODE_PORT}:3000
-    command: nest start --watch
+    command: npm run start:dev
 
   postgres:
     image: postgres:latest
     container_name: database
     environment:
       POSTGRES_DB: ${POSTGRES_DATABASE}
-      POSTGRES_USER: ${POSGRES_USER}
+      POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - ${POSTGRES_PORT}:5432

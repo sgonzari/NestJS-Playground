@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SharedModule } from './shared/shared.module';
 import { ApiConfigService } from './shared/services/api-config.service';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { ApiConfigService } from './shared/services/api-config.service';
       imports: [SharedModule],
       useFactory: (configService: ApiConfigService) => configService.typeOrmConfig,
       inject: [ApiConfigService]
-    })
+    }),
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
